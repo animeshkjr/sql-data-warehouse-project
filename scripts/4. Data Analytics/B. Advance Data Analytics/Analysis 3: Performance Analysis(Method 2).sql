@@ -23,17 +23,17 @@ SELECT
   	END AS avg_change
 FROM 
 (SELECT 
-		YEAR(a.sales_order_date)	AS order_year,
-		b.product_name,
-		SUM(a.sales)							AS current_sales
+	YEAR(a.sales_order_date)	AS order_year,
+	b.product_name,
+	SUM(a.sales)			AS current_sales
 FROM 
-		Gold.fact_sales							AS a
+	Gold.fact_sales			AS a
 LEFT JOIN 
-		gold.dim_products						AS b
-		ON a.product_key = b.product_key
+	gold.dim_products		AS b
+	ON a.product_key = b.product_key
 WHERE 
-		a.sales_order_date IS NOT NULL
+	a.sales_order_date IS NOT NULL
 GROUP BY 
-		YEAR(a.sales_order_date), b.product_name) AS yearly_product_sales
+	YEAR(a.sales_order_date), b.product_name) AS yearly_product_sales
 ORDER BY 
-	  product_name, order_year;
+	product_name, order_year;
