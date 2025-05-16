@@ -14,13 +14,13 @@ Highlights:
 SELECT
   	order_date,  --(or  order_date AS sales_order_date)
   	total_sales, --(or  total_saels AS sales)
-  	SUM(total_sales) OVER (ORDER BY order_date)	  AS running_total,    --(Window Function)
-  	AVG(avg_price) OVER (ORDER BY order_date)			AS moving_avg_price  --(Window Function)
+  	SUM(total_sales) OVER (ORDER BY order_date)	  	AS running_total,    --(Window Function)
+  	AVG(avg_price) OVER (ORDER BY order_date)		AS moving_avg_price  --(Window Function)
 FROM
 	(SELECT 
-  		DATETRUNC(month, sales_order_date)			AS order_date,
-  		SUM(sales)										          AS total_sales,
-  		AVG(price)										          AS avg_price
+  		DATETRUNC(month, sales_order_date)		AS order_date,
+  		SUM(sales)					AS total_sales,
+  		AVG(price)					AS avg_price
 	FROM 
 		  gold.fact_sales
 	WHERE 
