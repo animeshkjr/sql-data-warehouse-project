@@ -34,12 +34,12 @@ WITH base_query AS
 	  a.quantity,
 	  b.customer_key,
 	  b.customer_number,
-	  CONCAT(b.first_name, ' ' , b.last_name)		AS customer_name,
-	  DATEDIFF(YEAR, b.birthdate, GETDATE())		AS age
+	  CONCAT(b.first_name, ' ' , b.last_name)	AS customer_name,
+	  DATEDIFF(YEAR, b.birthdate, GETDATE())	AS age
 FROM 
-  	gold.fact_sales		  AS a
+  	gold.fact_sales		AS a
 LEFT JOIN 
-	  gold.dim_customers  AS b
+	  gold.dim_customers  	AS b
 	  ON a.customer_id = b.customer_id
 WHERE
 	  sales_order_date IS NOT NULL), --(Filtering out the NULL Order Date)
@@ -53,11 +53,11 @@ customer_aggregateion AS
   	customer_number,
   	customer_name,
   	age,
-	  COUNT(DISTINCT order_number)								  AS total_orders,
-	  SUM(sales)													          AS total_sales,
-	  SUM(quantity)												          AS total_quantity,
-	  COUNT(product_key)											      AS total_products,
-	  MAX(sales_order_date)										      AS last_order_date,
+	  COUNT(DISTINCT order_number)					AS total_orders,
+	  SUM(sales)							AS total_sales,
+	  SUM(quantity)							AS total_quantity,
+	  COUNT(product_key)						AS total_products,
+	  MAX(sales_order_date)						AS last_order_date,
 	  DATEDIFF(month, MIN(sales_order_date), MAX(sales_order_date)) AS lifespan
 FROM base_query
 GROUP BY
