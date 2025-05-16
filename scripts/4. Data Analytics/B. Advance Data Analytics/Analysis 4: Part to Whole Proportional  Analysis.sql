@@ -14,21 +14,21 @@ Highlights:
 
 WITH category_contribution AS
 (SELECT
-  	b.category,
-  	SUM(a.sales)			AS total_sales
+     b.category,
+     SUM(a.sales)	AS total_sales
 FROM 
-	  gold.fact_sales		AS a
+     gold.fact_sales	AS a
 LEFT JOIN 
-    gold.dim_products AS b
-	  ON a.product_key = b.product_key
+     gold.dim_products  AS b
+     ON a.product_key = b.product_key
 GROUP BY category)
 
 SELECT
-  	category,
-  	total_sales,
-  	SUM(total_sales) OVER () AS overall_sales,
-  	CONCAT(ROUND((CAST(total_sales AS FLOAT) / SUM(total_sales) OVER ()) * 100, 2), '%') AS percent_of_sales
+     category,
+     total_sales,
+     SUM(total_sales) OVER () AS overall_sales,
+     CONCAT(ROUND((CAST(total_sales AS FLOAT) / SUM(total_sales) OVER ()) * 100, 2), '%') AS percent_of_sales
 FROM 
-	  category_contribution
+     category_contribution
 ORDER BY 
-	  total_sales DESC;
+     total_sales DESC;
