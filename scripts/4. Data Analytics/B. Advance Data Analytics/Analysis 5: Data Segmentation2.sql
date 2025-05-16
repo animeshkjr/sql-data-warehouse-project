@@ -17,9 +17,9 @@ Highlights:
 WITH customer_spending AS
 (SELECT
 	b.customer_id,
-	SUM(a.sales)													                            AS total_spending,
-	MIN(a.sales_order_date)											                      AS first_order,
-	MAX(a.sales_order_date)											                      AS last_order,
+	SUM(a.sales)							  AS total_spending,
+	MIN(a.sales_order_date)						  AS first_order,
+	MAX(a.sales_order_date)						  AS last_order,
 	DATEDIFF(month, MIN(a.sales_order_date), MAX(a.sales_order_date)) AS lifespan
 FROM 
 	gold.fact_sales     AS a
@@ -36,9 +36,9 @@ FROM
 		customer_id,
 		total_spending,
 		lifespan,
-		CASE WHEN lifespan >= 12 AND total_spending > 5000  THEN 'VIP'
-			   WHEN lifespan >= 12 AND total_spending <= 5000 THEN 'Regular'
-			   ELSE 'New'
+		CASE 	WHEN lifespan >= 12 AND total_spending > 5000  THEN 'VIP'
+			WHEN lifespan >= 12 AND total_spending <= 5000 THEN 'Regular'
+			ELSE 'New'
 		END AS customer_segment
 	FROM
 		customer_spending) AS t
