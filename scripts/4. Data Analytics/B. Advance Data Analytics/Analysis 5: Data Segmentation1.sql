@@ -22,7 +22,8 @@ WITH product_segments AS
 		   WHEN product_cost BETWEEN 500 AND 1000 THEN '500 - 1000'
 		   ELSE 'Above 1000'
 	END AS cost_range
-FROM gold.dim_products)
+FROM 
+	gold.dim_products)
 
 SELECT
 	cost_range,
