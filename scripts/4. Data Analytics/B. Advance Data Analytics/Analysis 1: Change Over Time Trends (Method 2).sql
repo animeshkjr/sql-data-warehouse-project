@@ -13,13 +13,13 @@ Highlights:
     2. Enables time-series insights into business growth and customer engagement.
 ===========================================================================*/
 SELECT
-  	DATETRUNC (year, sales_order_date)  AS order_year,
-  	SUM	(sales)								          AS total_sales,
-  	COUNT (DISTINCT customer_id)			  AS customer_count,
-  	SUM	(quantity)							        AS total_unit_sale
+  	DATETRUNC (year, sales_order_date)  	AS order_year,
+  	SUM (sales)				AS total_sales,
+  	COUNT (DISTINCT customer_id)		AS customer_count,
+  	SUM (quantity)				AS total_unit_sale
 FROM 
-	  gold.fact_sales
+	gold.fact_sales
 WHERE 
-	  sales_order_date IS NOT NULL
-GROUP BY DATETRUNC	(year, sales_order_date)
-ORDER BY DATETRUNC	(year, sales_order_date);
+	sales_order_date IS NOT NULL
+GROUP BY DATETRUNC (year, sales_order_date)
+ORDER BY DATETRUNC (year, sales_order_date);
