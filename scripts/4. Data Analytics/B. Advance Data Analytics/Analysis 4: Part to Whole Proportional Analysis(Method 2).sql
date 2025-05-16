@@ -19,6 +19,6 @@ FROM
     gold.fact_sales   AS a
 LEFT JOIN 
     gold.dim_products AS b
-  ON a.product_key = b.product_key
+    ON a.product_key = b.product_key
 GROUP BY b.category
 ORDER BY category_total_sales DESC;
