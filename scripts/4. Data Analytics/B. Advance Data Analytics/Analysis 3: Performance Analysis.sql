@@ -11,20 +11,20 @@ Highlights:
     3. Compares product sales to the average to highlight over/underperformance.
 ===========================================================================
 */
-WITH yearly_product_sales				AS   /*(WITH clause in SQL is used to create a Common Table Expression (CTE). It is like - Let me create a small table just for this query, and I'll use it later) */
-	(SELECT 
-  		YEAR(a.sales_order_date)	AS order_year,
-  		b.product_name,
-  		SUM(a.sales)				    	AS current_sales
-	FROM 
-		  Gold.fact_sales			AS a
-	LEFT JOIN 
-		  gold.dim_products		AS b
-		  ON a.product_key = b.product_key
-	WHERE 
-		  a.sales_order_date IS NOT NULL
-	GROUP BY 
-		  YEAR(a.sales_order_date), b.product_name)
+WITH yearly_product_sales AS   /*(WITH clause in SQL is used to create a Common Table Expression (CTE). It is like - Let me create a small table just for this query, and I'll use it later) */
+(SELECT 
+  	YEAR(a.sales_order_date) AS order_year,
+  	b.product_name,
+  	SUM(a.sales)		 AS current_sales
+FROM 
+	Gold.fact_sales	 	 AS a
+LEFT JOIN 
+	gold.dim_products	 AS b
+ON 	a.product_key = b.product_key
+WHERE 
+	a.sales_order_date IS NOT NULL
+GROUP BY 
+	YEAR(a.sales_order_date), b.product_name)
 
 SELECT
     	order_year,
@@ -37,6 +37,6 @@ SELECT
     		   ELSE 'Avg Sales'
     	END AS avg_change
 FROM 
-	    yearly_product_sales
+	yearly_product_sales
 ORDER BY 
-	    product_name, order_year;
+	product_name, order_year;
