@@ -2,6 +2,12 @@
 ===========================================================================
 ANALYSIS 3: PERFORMANCE ANALYSIS 
 ===========================================================================
+Formula: Current[Measure] - Target[Measure]
+Examples:
+    - Current Sales - Avg Sales
+    - Current Year Sales - Previous Year Sales
+    - Current Month Revenue - Target Revenue
+===========================================================================
 Purpose:
     - To assess yearly product performance relative to overall average performance.
 
