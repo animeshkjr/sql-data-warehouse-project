@@ -42,3 +42,6 @@ LEFT JOIN gold.dim_products AS b
   ON a.product_key = b.product_key
 GROUP BY b.product_name
 ORDER BY total_revenue ASC
+
+
+--NOTE: RUN them seperately. 
