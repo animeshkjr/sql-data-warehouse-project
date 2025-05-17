@@ -88,3 +88,7 @@ GROUP BY
   b.country
 ORDER BY 
   total_sold_items DESC
+
+
+
+--NOTE: RUN them seperately. 
