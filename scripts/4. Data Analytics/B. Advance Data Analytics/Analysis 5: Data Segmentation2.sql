@@ -2,6 +2,12 @@
 ===========================================================================
 ANALYSIS 5: DATA SEGMENTATION
 ===========================================================================
+Formula: [Measure] By [Measure]
+Examples:
+    - Total Products By Sales Range
+    - Total Customers By Age
+    - Total Orders By Price Range
+===========================================================================
 Purpose:
     - To classify customers based on their lifecycle and spending patterns for targeted analysis.
 
