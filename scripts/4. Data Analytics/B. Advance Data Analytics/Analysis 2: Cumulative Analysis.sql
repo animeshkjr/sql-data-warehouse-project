@@ -2,6 +2,12 @@
 ===========================================================================
 ANALYSIS 2: CUMULATIVE ANALYSIS 
 ===========================================================================
+Formula: Σ [Cumulative Measure] By [Date Dimension]
+Examples:
+    - Running Total of Sales By Year
+    - Running Avg Sales By Month
+    - Cumulative Quantity By Week
+===========================================================================
 Purpose:
     - To evaluate monthly sales progression and monitor cumulative growth trends.
 
