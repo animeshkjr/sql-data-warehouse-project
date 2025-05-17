@@ -28,3 +28,6 @@ SELECT DISTINCT
 FROM 
   gold.dim_products
 ORDER BY 1,2,3;
+
+
+--NOTE: RUN them seperately. 
