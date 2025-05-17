@@ -2,6 +2,12 @@
 ===========================================================================
 ANALYSIS 1: CHANGE OVER TIME TRENDS
 ===========================================================================
+Formula: Σ [Measure] By [Date Dimension]
+Examples:
+    - Total Sales By Year
+    - Avg Cost By Month
+    - Total Orders By Quarter
+===========================================================================
 Purpose:
     - To analyze year-over-year trends in sales performance and customer activity.
 
