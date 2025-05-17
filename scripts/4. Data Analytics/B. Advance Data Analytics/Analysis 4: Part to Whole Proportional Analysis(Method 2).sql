@@ -2,6 +2,12 @@
 ===========================================================================
 ANALYSIS 4: PART TO WHOLE PROPORTIONAL ANALYSIS
 ===========================================================================
+Formula: ([Measure] / Total [Measure]) * 100 By [Dimension]
+Examples:
+    - (Sales / Total Sales) * 100 By Category
+    - (Quantity / Total Quantity) * 100 By Country
+    - (Profit / Total Profit) * 100 By Region
+===========================================================================
 Purpose:
     - To understand how different categories contribute to total sales.
 
