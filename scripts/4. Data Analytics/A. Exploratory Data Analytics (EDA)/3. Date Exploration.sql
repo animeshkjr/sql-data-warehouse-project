@@ -35,3 +35,6 @@ SELECT
   MAX(birthdate)                                 AS youngest_customer__birthdate,
   DATEDIFF(year, MAX(birthdate), GETDATE())      AS youngest_customer_age
 FROM gold.dim_customers;
+
+
+--NOTE: RUN them seperately. 
